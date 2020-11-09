@@ -12,7 +12,7 @@ from pathutils import full_path
 
 __author__ = 'roland'
 
-TMPL_NO_HEADER = """<xenc:EncryptedData xmlns:xenc="http://www.w3.org/2001/04/xmlenc#" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" Id="{ed_id}" Type="http://www.w3.org/2001/04/xmlenc#Element"><xenc:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#tripledes-cbc" /><ds:KeyInfo><xenc:EncryptedKey Id="{ek_id}"><xenc:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#rsa-1_5" /><ds:KeyInfo><ds:KeyName>my-rsa-key</ds:KeyName></ds:KeyInfo><xenc:CipherData><xenc:CipherValue /></xenc:CipherData></xenc:EncryptedKey></ds:KeyInfo><xenc:CipherData><xenc:CipherValue /></xenc:CipherData></xenc:EncryptedData>"""
+TMPL_NO_HEADER = """<xenc:EncryptedData xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:xenc="http://www.w3.org/2001/04/xmlenc#" Id="{ed_id}" Type="http://www.w3.org/2001/04/xmlenc#Element"><xenc:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#tripledes-cbc" /><ds:KeyInfo><xenc:EncryptedKey Id="{ek_id}"><xenc:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#rsa-1_5" /><ds:KeyInfo><ds:KeyName>my-rsa-key</ds:KeyName></ds:KeyInfo><xenc:CipherData><xenc:CipherValue /></xenc:CipherData></xenc:EncryptedKey></ds:KeyInfo><xenc:CipherData><xenc:CipherValue /></xenc:CipherData></xenc:EncryptedData>"""
 TMPL = "<?xml version='1.0' encoding='UTF-8'?>\n%s" % TMPL_NO_HEADER
 
 IDENTITY = {"eduPersonAffiliation": ["staff", "member"],
@@ -122,6 +122,7 @@ def test_enc2():
                                         pre_encryption_part())
 
     assert enc_resp
+
 
 if __name__ == "__main__":
     test_enc1()
